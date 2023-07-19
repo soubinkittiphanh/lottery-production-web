@@ -11,7 +11,7 @@
     <router-view></router-view>
   </div>
   <!-- :class="navClassObject" -->
-  <div class="navbar_" :class="navClassObject">
+  <div v-if="isLogin" class="navbar_" :class="navClassObject" >
     <router-link
       to="/lotterymgr"
       class="navbar__link"
@@ -54,7 +54,7 @@
     <router-link
       to="/sale"
       class="navbar__link"
-      v-if="isAdmin && menu['m_sale'] == 1"
+      v-if=" menu['m_sale'] == 1"
     >
       <span class="material-icons">point_of_sale</span>ຂາຍ</router-link
     >
@@ -69,7 +69,7 @@
     <router-link
       to="/winreport"
       class="navbar__link"
-      v-if="isAdmin && menu['m_re_win'] == 1"
+      v-if="menu['m_re_win'] == 1"
     >
       <span class="material-icons">receipt</span>ລາຍງານຖືກລາງວັນ</router-link
     >
@@ -119,7 +119,8 @@ export default {
         "m_list_member":0,
         "m_add_member":0,
         "m_group":0,
-        "m_master": 0,},
+        "m_master": 0,
+      },
     };
   },
   computed: {
@@ -132,6 +133,10 @@ export default {
       console.log("Admin:" + this.$store.getters.isAdmin);
       console.log("MasterAdmin:" + this.$store.getters.isMaster);
       return this.$store.getters.isAdmin === "true" ? true : false;
+    },
+    isLogin() {
+      console.log("Login statu ",this.$store.getters.isAuth);
+      return this.$store.getters.isAuth ;
     },
   },
   created() {

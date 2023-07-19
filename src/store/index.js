@@ -13,7 +13,20 @@ const store = createStore({
         userAdmin: null,
       },
       ism: null,
-      menu: {},
+      menu: {
+        "m_home": 0,
+        "m_category": 0 ,
+        "m_branch": 0,
+        "m_limited_price": 0,
+        "m_pay_rate": 0,
+        "m_sale": 0,
+        "m_re_sale": 0,
+        "m_re_win":0,
+        "m_list_member":0,
+        "m_add_member":0,
+        "m_group":0,
+        "m_master": 0,
+      },
     };
   },
   mutations: {
