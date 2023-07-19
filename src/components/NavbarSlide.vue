@@ -62,7 +62,7 @@
     <router-link
       to="/salereport"
       class="navbar__link"
-      v-if="isAdmin && menu['m_re_sale'] == 1"
+      v-if="menu['m_re_sale'] == 1"
     >
       <span class="material-icons">receipt</span>ຍອດຂາຍ</router-link
     >
